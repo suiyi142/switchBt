@@ -416,6 +416,7 @@ public class SwitchButton extends CompoundButton {
 
             measuredWidth = Math.max(contentSize, contentSize + getPaddingLeft() + getPaddingRight());
         }
+        mBackWidth = measuredWidth;
         return measuredWidth;
     }
 
