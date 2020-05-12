@@ -744,7 +744,7 @@ public class SwitchButton extends CompoundButton {
             case MotionEvent.ACTION_CANCEL:
             case MotionEvent.ACTION_UP:
                 mCatch = false;
-                setPressed(false);
+
                 float time = event.getEventTime() - event.getDownTime();
                 if (Math.abs(deltaX) < mTouchSlop && Math.abs(deltaY) < mTouchSlop && time < mClickTimeout) {
                     performClick();
@@ -757,6 +757,7 @@ public class SwitchButton extends CompoundButton {
                         animateToState(nextStatus);
                     }
                 }
+                setPressed(false);
                 break;
 
             default:
