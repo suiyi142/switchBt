@@ -43,7 +43,7 @@ public class SwitchButton extends CompoundButton {
     private static final String TAG = "SwitchButton";
     public static final float DEFAULT_THUMB_RANGE_RATIO = 1.8f;
     public static final int DEFAULT_THUMB_SIZE_DP = 20;
-    public static final int DEFAULT_THUMB_MARGIN_DP = 2;
+    public static final int DEFAULT_THUMB_MARGIN_DP = 0;
     public static final int DEFAULT_ANIMATION_DURATION = 250;
     public static final int DEFAULT_TINT_COLOR = 0x327FC2;
 
