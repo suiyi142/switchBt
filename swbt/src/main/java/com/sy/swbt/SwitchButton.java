@@ -30,7 +30,6 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.CompoundButton;
 
 
-
 /**
  * SwitchButton
  *
@@ -99,6 +98,7 @@ public class SwitchButton extends CompoundButton {
     private boolean mRestoring = false;
     private boolean mReady = false;
     private boolean mCatch = false;
+    private boolean mEnableClickThumb = true;
 
     private CompoundButton.OnCheckedChangeListener mChildOnCheckedChangeListener;
 
@@ -199,6 +199,7 @@ public class SwitchButton extends CompoundButton {
             textThumbInset = ta.getDimensionPixelSize(R.styleable.SwitchButton_kswTextThumbInset, 0);
             textExtra = ta.getDimensionPixelSize(R.styleable.SwitchButton_kswTextExtra, 0);
             textAdjust = ta.getDimensionPixelSize(R.styleable.SwitchButton_kswTextAdjust, 0);
+            mEnableClickThumb = ta.getBoolean(R.styleable.SwitchButton_kswEnableClickThumb, true);
             ta.recycle();
         }
 
@@ -747,7 +748,8 @@ public class SwitchButton extends CompoundButton {
 
                 float time = event.getEventTime() - event.getDownTime();
                 if (Math.abs(deltaX) < mTouchSlop && Math.abs(deltaY) < mTouchSlop && time < mClickTimeout) {
-                    performClick();
+                    if (mEnableClickThumb || !mPresentThumbRectF.contains(mStartX, mStartY))
+                        performClick();
                 } else {
                     boolean nextStatus = getStatusBasedOnPos();
                     if (nextStatus != isChecked()) {
@@ -1092,6 +1094,15 @@ public class SwitchButton extends CompoundButton {
         requestLayout();
         invalidate();
     }
+
+    public boolean ismEnableClickThumb() {
+        return mEnableClickThumb;
+    }
+
+    public void setmEnableClickThumb(boolean mEnableClickThumb) {
+        this.mEnableClickThumb = mEnableClickThumb;
+    }
+
 
     public CharSequence getTextOn() {
         return mTextOn;
