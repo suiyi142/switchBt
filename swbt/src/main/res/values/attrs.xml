@@ -28,6 +28,7 @@
         <attr name="kswTextThumbInset" format="dimension" />
         <attr name="kswTextExtra" format="dimension" />
         <attr name="kswTextAdjust" format="dimension" />
+        <attr name="kswEnableClickThumb" format="boolean" />
     </declare-styleable>
 
 </resources>
